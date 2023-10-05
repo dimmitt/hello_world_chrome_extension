@@ -1,6 +1,9 @@
 {
-  "name": "Getting Started Example",
+  "manifest_version": 3,
+  "name": "Hello Extensions",
+  "description": "Base Level Extension",
   "version": "1.0",
-  "description": "Build an Extension!",
-  "manifest_version": 2
+  "action": {
+    "default_popup": "hello.html"
+  }
 }
