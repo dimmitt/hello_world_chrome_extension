@@ -1,4 +1,49 @@
 console.log('hello')
+const rsvpToMeetup = (decision=true, eventId="296377189", eventUrl="jax-code-and-coffee") => {
+  const action = decision ? "YES" : "NO";
+  fetch("https://www.meetup.com/gql2", {
+    "headers": {
+      "accept": "*/*",
+      "accept-language": "en-US",
+      "apollographql-client-name": "nextjs-web",
+      "cache-control": "no-cache",
+      "content-type": "application/json",
+      "pragma": "no-cache",
+      "sec-ch-ua": "\"Google Chrome\";v=\"117\", \"Not;A=Brand\";v=\"8\", \"Chromium\";v=\"117\"",
+      "sec-ch-ua-mobile": "?0",
+      "sec-ch-ua-platform": "\"macOS\"",
+      "sec-fetch-dest": "empty",
+      "sec-fetch-mode": "cors",
+      "sec-fetch-site": "same-origin",
+      "x-meetup-view-id": "ce9d9df1-ca78-40a6-9989-5c332f64cabf"
+    },
+    "referrer": `https://www.meetup.com/${eventUrl}/events/${eventId}/`,
+    "referrerPolicy": "strict-origin-when-cross-origin",
+    "body": JSON.stringify({
+      "operationName": "rsvpToEvent",
+      "variables":{
+        "input":{
+          eventId,
+          "response": action,
+          "proEmailShareOptin":false,
+          "guestsCount":0,
+          "venueId":"27483804"
+        }
+      },
+      "extensions":{
+        "persistedQuery":{
+          "version":1,
+          "sha256Hash":"a503eca5efa7aa3924f5397b743f53304da7b2fcf393c105ca466f8b31f6cbd3"
+        }
+      }
+    }),
+    "method": "POST",
+    "mode": "cors",
+    "credentials": "include"
+  });
+}
+// rsvpToMeetup(false);
+
 const getMeetups = (endCursor = '', count = 0) => {
   let variables;
   if (endCursor) {
@@ -62,7 +107,7 @@ const getMeetups = (endCursor = '', count = 0) => {
   // how many events do you want to rsvp out to?
   // (default 10)
 }
-getMeetups();
+// getMeetups();
 const getEvent = () => {
   fetch("https://api.meetup.com/gql", {
     "headers": {
