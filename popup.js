@@ -1,5 +1,17 @@
 console.log('hello')
-const getMeetups = () => {
+const getMeetups = (endCursor = '', count = 0) => {
+  let variables;
+  if (endCursor) {
+    variables = { 
+      "urlname": "jax-code-and-coffee",
+      "after": endCursor
+    }
+  } else {
+    variables =  { 
+      "urlname": "jax-code-and-coffee"
+    }
+  }
+  
   fetch("https://www.meetup.com/gql2", {
     "headers": {
       "accept": "*/*",
@@ -20,9 +32,7 @@ const getMeetups = () => {
     "referrerPolicy": "strict-origin-when-cross-origin",
     "body": JSON.stringify({
       "operationName": "getUpcomingGroupEvents",
-        variables: { 
-          "urlname": "jax-code-and-coffee"
-        },
+        variables,
         "extensions":{
           "persistedQuery":{
             "version":1,
@@ -35,7 +45,22 @@ const getMeetups = () => {
     "credentials": "include"
   })
   .then(res => res.json())
-  .then(res => console.log(res.data))
+  .then(res => {
+    const eventIds = res.data.groupByUrlname.events.edges.map(event => event.node.id)
+    const endCursor = res.data.groupByUrlname.events.pageInfo.endCursor
+    const len = eventIds.length;
+    console.log({
+      eventIds,
+      len,
+      endCursor,
+      events: res.data.groupByUrlname.events
+    })
+    if(len === 10 && count < 10) {
+      getMeetups(endCursor, count+1)
+    }
+  })
+  // how many events do you want to rsvp out to?
+  // (default 10)
 }
 getMeetups();
 const getEvent = () => {
