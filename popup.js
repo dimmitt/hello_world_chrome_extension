@@ -21,8 +21,7 @@ const getMeetups = () => {
     "body": JSON.stringify({
       "operationName": "getUpcomingGroupEvents",
         variables: { 
-          "urlname": "jax-code-and-coffee",
-          "after": "Mjk2NTU2MzYwOjE2OTgyMzcwMDAwMDA="
+          "urlname": "jax-code-and-coffee"
         },
         "extensions":{
           "persistedQuery":{
