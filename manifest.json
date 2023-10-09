@@ -7,7 +7,7 @@
     {
       "js": ["popup.js"],
       "matches": [
-        "https://www.google.com/*"
+        "https://www.meetup.com/*"
       ]
     }
   ],
