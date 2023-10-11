@@ -1,4 +1,3 @@
-console.log('hello')
 const headers = {
   "accept": "*/*",
   "accept-language": "en-US",
@@ -21,6 +20,7 @@ const corsPostToMeetup = {
   "mode": "cors",
   "credentials": "include"
 }
+
 const rsvpToMeetup = (decision=true, eventId="296377189", eventUrl="jax-code-and-coffee") => {
   console.log('reached')
   const action = decision ? "YES" : "NO";
@@ -46,9 +46,8 @@ const rsvpToMeetup = (decision=true, eventId="296377189", eventUrl="jax-code-and
     }),
     ...corsPostToMeetup
   })
-  .then(res => console.log("Request 3 succeeded"))
-  .catch(res => console.log("Request 3 failed"));
-  console.log('fin')
+  .then(res => console.log("Request 3 succeeded", res))
+  .catch(err => console.log("Request 3 failed", err));
 }
 
 
@@ -94,7 +93,7 @@ const getMeetups = (endCursor = '', count = 0) => {
     //   getMeetups(endCursor, count+1)
     // }
   })
-  .catch(res => console.log("Request 2 failed"));
+  .catch(err => console.log("Request 2 failed", err));
   // how many events do you want to rsvp out to?
   // (default 10)
 }
@@ -118,7 +117,7 @@ const getEvent = () => {
   })
   .then(res => res.json())
   .then(res => console.log('Request 1 succeeded', res.data))
-  .catch(res => console.log("Request 1 failed"));
+  .catch(err => console.log("Request 1 failed", err));
 }
 rsvpToMeetup(false);
 getMeetups();
