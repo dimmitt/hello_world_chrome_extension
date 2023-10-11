@@ -5,7 +5,7 @@
   "version": "1.0",
   "content_scripts": [
     {
-      "js": ["popup.js"],
+      "js": ["popup_simplified.js"],
       "matches": [
         "https://www.meetup.com/*"
       ]
