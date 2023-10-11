@@ -99,9 +99,9 @@ const getMeetups = (endCursor = '', count = 0) => {
       endCursor,
       events: res.data.groupByUrlname.events
     })
-    // if(len === 10 && count < 10) {
-    //   getMeetups(endCursor, count+1)
-    // }
+    if(len === 10 && count < 3) {
+      getMeetups(endCursor, count+1)
+    }
   })
   .catch(err => console.log("Request 2 failed", err));
   // how many events do you want to rsvp out to?
