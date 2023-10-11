@@ -13,12 +13,23 @@ const headers = {
   "sec-fetch-site": "same-origin",
   "x-meetup-view-id": "ce9d9df1-ca78-40a6-9989-5c332f64cabf"
 }
+
 const corsPostToMeetup = {
   "method": "POST",
   "referrer": "https://www.meetup.com/",
   "referrerPolicy": "strict-origin-when-cross-origin",
   "mode": "cors",
   "credentials": "include"
+}
+
+const networkRequestTemplate = () => {
+  fetch("https://www.meetup.com/gql2", {
+    headers,
+    "body": JSON.stringify({}),
+    ...corsPostToMeetup
+  })
+  .then(res => console.log("Request # succeeded", res))
+  .catch(err => console.log("Request # failed", err));
 }
 
 const rsvpToMeetup = (decision=true, eventId="296377189", eventUrl="jax-code-and-coffee") => {
@@ -49,7 +60,6 @@ const rsvpToMeetup = (decision=true, eventId="296377189", eventUrl="jax-code-and
   .then(res => console.log("Request 3 succeeded", res))
   .catch(err => console.log("Request 3 failed", err));
 }
-
 
 const getMeetups = (endCursor = '', count = 0) => {
   let variables;
@@ -119,6 +129,6 @@ const getEvent = () => {
   .then(res => console.log('Request 1 succeeded', res.data))
   .catch(err => console.log("Request 1 failed", err));
 }
-rsvpToMeetup(false);
-getMeetups();
-getEvent();
+// rsvpToMeetup(false);
+// getMeetups();
+// getEvent();
