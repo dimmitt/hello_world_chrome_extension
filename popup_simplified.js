@@ -130,5 +130,5 @@ const getEvent = () => {
   .catch(err => console.log("Request 1 failed", err));
 }
 // rsvpToMeetup(false);
-getMeetups();
+// getMeetups();
 // getEvent();
