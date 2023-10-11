@@ -99,7 +99,7 @@ const getMeetups = (endCursor = '', count = 0) => {
       endCursor,
       events: res.data.groupByUrlname.events
     })
-    if(len === 10 && count < 3) {
+    if(len === 10 && count < 0) { // change count to intended page number to add pagination.
       getMeetups(endCursor, count+1)
     }
   })
@@ -130,5 +130,5 @@ const getEvent = () => {
   .catch(err => console.log("Request 1 failed", err));
 }
 // rsvpToMeetup(false);
-// getMeetups();
+getMeetups();
 // getEvent();
