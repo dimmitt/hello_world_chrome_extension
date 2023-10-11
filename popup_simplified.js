@@ -14,10 +14,10 @@ const headers = {
   "sec-fetch-site": "same-origin",
   "x-meetup-view-id": "ce9d9df1-ca78-40a6-9989-5c332f64cabf"
 }
-const cors = {
+const corsPostToMeetup = {
+  "method": "POST",
   "referrer": "https://www.meetup.com/",
   "referrerPolicy": "strict-origin-when-cross-origin",
-  "method": "POST",
   "mode": "cors",
   "credentials": "include"
 }
@@ -26,8 +26,6 @@ const rsvpToMeetup = (decision=true, eventId="296377189", eventUrl="jax-code-and
   const action = decision ? "YES" : "NO";
   fetch("https://www.meetup.com/gql2", {
     headers,
-    "referrer": `https://www.meetup.com/${eventUrl}/events/${eventId}/`,
-    "referrerPolicy": "strict-origin-when-cross-origin",
     "body": JSON.stringify({
       "operationName": "rsvpToEvent",
       "variables":{
@@ -46,9 +44,7 @@ const rsvpToMeetup = (decision=true, eventId="296377189", eventUrl="jax-code-and
         }
       }
     }),
-    "method": "POST",
-    "mode": "cors",
-    "credentials": "include"
+    ...corsPostToMeetup
   })
   .then(res => console.log("Request 3 succeeded"))
   .catch(res => console.log("Request 3 failed"));
@@ -71,8 +67,6 @@ const getMeetups = (endCursor = '', count = 0) => {
   
   fetch("https://www.meetup.com/gql2", {
     headers,
-    "referrer": "https://www.meetup.com/jax-code-and-coffee/events/",
-    "referrerPolicy": "strict-origin-when-cross-origin",
     "body": JSON.stringify({
       "operationName": "getUpcomingGroupEvents",
         variables,
@@ -83,9 +77,7 @@ const getMeetups = (endCursor = '', count = 0) => {
           }
         }
     }),
-    "method": "POST",
-    "mode": "cors",
-    "credentials": "include"
+    ...corsPostToMeetup
   })
   .then(res => res.json())
   .then(res => {
@@ -122,11 +114,7 @@ const getEvent = () => {
         eventId: 296153162
       }
     }),
-    "referrer": "https://www.meetup.com/",
-    "referrerPolicy": "strict-origin-when-cross-origin",
-    "method": "POST",
-    "mode": "cors",
-    "credentials": "include"
+    ...corsPostToMeetup
   })
   .then(res => res.json())
   .then(res => console.log('Request 1 succeeded', res.data))
