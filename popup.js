@@ -33,7 +33,6 @@ const networkRequestTemplate = () => {
 }
 
 const rsvpToMeetup = (decision=true, eventId="296377189", eventUrl="jax-code-and-coffee") => {
-  console.log('reached')
   const action = decision ? "YES" : "NO";
   fetch("https://www.meetup.com/gql2", {
     headers,
@@ -132,3 +131,29 @@ const getEvent = () => {
 // rsvpToMeetup(false);
 // getMeetups();
 // getEvent();
+
+// 1. to add a button:
+// const elem1 = document.getElementsByClassName('du3dmzv')[0].children[0];
+// const elem2 = document.getElementsByClassName('flex flex-row items-center space-x-10')[0];
+// const test = elem1 === elem2; // should always be true.
+
+// 2. to add a button:
+// const btn = document.createElement("button").innerHTML="hi";
+// const input = document.createElement("input");
+
+// 3. to add a button: 
+// elem2.appendChild(btn).appendChild(input)
+
+// <button>hi</button> {/* Button needs to rsvp to the event. */}
+// <input type="text"></input>  {/* Input needs to feed to a variable */}
+
+// 1. when on an event page
+// url.contains('events')
+// https://www.meetup.com/RubyJax/events/257144296
+
+// 2. when on a groups page
+// https://www.meetup.com/rubyjax/events
+
+// Or look at network request to figure out what page I am on ?
+// Can a chrome extension know what network requests have been run?
+
