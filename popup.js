@@ -60,16 +60,16 @@ const rsvpToMeetup = (decision=true, eventId="296377189", eventUrl="jax-code-and
   .catch(err => console.log("Request 3 failed", err));
 }
 
-const getMeetups = (endCursor = '', count = 0) => {
+const getMeetups = ( urlName = "jax-code-and-coffee", endCursor = '', count = 0) => {
   let variables;
   if (endCursor) {
     variables = { 
-      "urlname": "jax-code-and-coffee",
+      urlName,
       "after": endCursor
     }
   } else {
     variables =  { 
-      "urlname": "jax-code-and-coffee"
+      urlName
     }
   }
   
@@ -89,8 +89,8 @@ const getMeetups = (endCursor = '', count = 0) => {
   })
   .then(res => res.json())
   .then(res => {
-    const eventIds = res.data.groupByUrlname.events.edges.map(event => event.node.id)
-    const endCursor = res.data.groupByUrlname.events.pageInfo.endCursor
+    const eventIds = res.data.groupByUrlname.events.edges.map(event => event.node.id) // urlName intentionally misspelled to match meetup api.
+    const endCursor = res.data.groupByUrlname.events.pageInfo.endCursor // urlName intentionally misspelled to match meetup api.
     const len = eventIds.length;
     console.log('Request 2 succeeded', {
       eventIds,
@@ -99,7 +99,7 @@ const getMeetups = (endCursor = '', count = 0) => {
       events: res.data.groupByUrlname.events
     })
     if(len === 10 && count < 0) { // change count to intended page number to add pagination.
-      getMeetups(endCursor, count+1)
+      getMeetups(urlName, endCursor, count+1)
     }
   })
   .catch(err => console.log("Request 2 failed", err));
@@ -139,6 +139,7 @@ const getEvent = () => {
 
 // 2. to add a button:
 // const btn = document.createElement("button").innerHTML="hi";
+// btn.onClick = getMeetups("jax-code-and-coffee")
 // const input = document.createElement("input");
 
 // 3. to add a button: 
@@ -157,3 +158,11 @@ const getEvent = () => {
 // Or look at network request to figure out what page I am on ?
 // Can a chrome extension know what network requests have been run?
 
+// Features
+// 1. show all groups for current user. gql ... self
+// 2. rsvp "yes" to 10 meetups for this group.
+// 3. rsvp "yes" to all meetups for this group.
+// 4. rsvp "yes" to the next 10 meetups for this event description.
+// 5. rsvp "no" to 10 meetups for this group.
+// 6. rsvp "no" to all meetups for this group.
+// 7. rsvp "no" to the next 10 meetups for this event description.
