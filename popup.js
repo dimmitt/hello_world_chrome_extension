@@ -166,3 +166,12 @@ const getEvent = () => {
 // 5. rsvp "no" to 10 meetups for this group.
 // 6. rsvp "no" to all meetups for this group.
 // 7. rsvp "no" to the next 10 meetups for this event description.
+
+// A possible full experience:
+// 1. add a slider at the top of the page of the extension is enabled.
+// 2. when the slider is active the powderblue ui pops up.
+// 3. add a button for all.
+// 4. it shows your groups as buttons.
+// 5. it shows an input text to filter by text.
+// 6. it shows results of the query.
+// 7. it has an rsvp yes and rsvp no button.
