@@ -1,17 +1,17 @@
 const headers = {
   "accept": "*/*",
   "accept-language": "en-US",
-  "apollographql-client-name": "nextjs-web",
-  "cache-control": "no-cache",
+  // "apollographql-client-name": "nextjs-web",
+  // "cache-control": "no-cache",
   "content-type": "application/json",
-  "pragma": "no-cache",
-  "sec-ch-ua": "\"Google Chrome\";v=\"117\", \"Not;A=Brand\";v=\"8\", \"Chromium\";v=\"117\"",
-  "sec-ch-ua-mobile": "?0",
-  "sec-ch-ua-platform": "\"macOS\"",
-  "sec-fetch-dest": "empty",
-  "sec-fetch-mode": "cors",
-  "sec-fetch-site": "same-origin",
-  "x-meetup-view-id": "ce9d9df1-ca78-40a6-9989-5c332f64cabf"
+  // "pragma": "no-cache",
+  // "sec-ch-ua": "\"Google Chrome\";v=\"117\", \"Not;A=Brand\";v=\"8\", \"Chromium\";v=\"117\"",
+  // "sec-ch-ua-mobile": "?0",
+  // "sec-ch-ua-platform": "\"macOS\"",
+  // "sec-fetch-dest": "empty",
+  // "sec-fetch-mode": "cors",
+  // "sec-fetch-site": "same-origin",
+  // "x-meetup-view-id": "ce9d9df1-ca78-40a6-9989-5c332f64cabf"
 }
 
 const corsPostToMeetup = {
