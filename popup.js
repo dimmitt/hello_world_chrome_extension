@@ -175,3 +175,13 @@ const getEvent = () => {
 // 5. it shows an input text to filter by text.
 // 6. it shows results of the query.
 // 7. it has an rsvp yes and rsvp no button.
+
+// This extension solves the meetup subscribe situation for desktop
+// but how can we solve it for mobile?
+// introducing the simple rsvp meetup-subscribe mobile app.
+
+// meetup subscribe mobile app
+// 1. make curl requests to see if they are possible when not on the meetup website.
+// 2. make a simple react native app and see if possible to use the same request.
+// 3. add the interface from above to a mobile app
+// 4. submit to app store. 
