@@ -1,17 +1,16 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-
 import './App.css'
-import MeetupDetails from './pages/MeetupDetails'
+import { lazy } from 'react';
+const MeetupDetails = false ? lazy(() => import('./pages/MeetupDetails')) : () => undefined;
 
 function App() {
-  const [count, setCount] = useState(0)
-
+  
   return (
-    <div>
+    <section style={{
+      minHeight: 'calc(100vh - 40px)',
+      width: 'calc(100vw - 40px)'
+  }}>
       <MeetupDetails/>
-    </div>
+    </section>
   )
 }
 

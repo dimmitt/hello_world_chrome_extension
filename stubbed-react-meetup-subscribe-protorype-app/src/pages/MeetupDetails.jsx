@@ -1,5 +1,6 @@
 import React from 'react';
 import { meetups } from '../data';
+import '../powderbluelook.css'
 
 const MeetupDetails = () => {
   const meetup = meetups[0];
@@ -14,7 +15,8 @@ const MeetupDetails = () => {
   // const { created, name, id, join_mode, lat } = group
   return <div>
       { created}
-      <br/>description: { description}
+      <br/>description:
+      <br/><div style={{border: 'solid black 1px', display: 'inline-block', whiteSpace: 'pre-line', padding: '.5rem', margin: '.5rem'}}>{ description.replace(/<\/?[^>]+(>|$)/g, "")}</div>
       <br/>{ duration}
       {/* <br/>{ group.created}
       <br/>{ group.name}
@@ -36,8 +38,8 @@ const MeetupDetails = () => {
       <br/>{ venue.lon}
       <br/>{ venue.repinned} */}
       <br/>{ visibility}
-      <br/>{ waitlist_count}
-      <br/>{ yes_rsvp_count}
+      {/* <br/>{ waitlist_count}
+      <br/>{ yes_rsvp_count} */}
   </div>
 }
 
