@@ -160,9 +160,9 @@ const getEvent = () => {
 
 // Features
 // 1. show all groups for current user. gql ... self
-// 2. rsvp "yes" to 10 meetups for this group.
-// 3. rsvp "yes" to all meetups for this group.
-// 4. rsvp "yes" to the next 10 meetups for this event description.
+// 2. rsvp "yes" to 10 meetups for a group.
+// 3. rsvp "yes" to all meetups for a group.
+// 4. rsvp "yes" to the next 10 meetups for a event description.
 // 5. rsvp "no" to 10 meetups for this group.
 // 6. rsvp "no" to all meetups for this group.
 // 7. rsvp "no" to the next 10 meetups for this event description.
@@ -185,3 +185,43 @@ const getEvent = () => {
 // 2. make a simple react native app and see if possible to use the same request.
 // 3. add the interface from above to a mobile app
 // 4. submit to app store. 
+
+// Reach out to Alex.
+// got time to talk next week, timeboxed to 20 minutes
+// let me know day/time that works for you
+// I am interested in discussing the equation for selling your lunch to co-workers.
+// when lunchpool was originally pitched at startup weekend this was the idea.
+// just wanted to go through quick pricing strategies along with general catching up.
+// I need to check if any applications have done this... (how would you find it other than app store?)
+// find: commercial product... phone/web , transactions.
+// Characteristics of what you are finding.
+
+// Another packaging system...
+// Wizard style.
+// questions: 
+// SO, I hear you want to subscribe/rsvp to meetups!
+// What group? 
+// (list all meetups) , dropdown, or many buttons.
+// For this group would you like to rsvp to all ? 
+// options: (meetups with a text pattern) or (all meetups)
+// 
+// what slideshow? powderblue sheek.
+// get ui up via mock data.
+
+// 
+
+const loadPage = () => {
+  
+  document.getElementsByTagName('body')[0].remove()
+  const html = document.getElementsByTagName('html')[0].innerHTML += '<h1>hello</h1>';
+  // var xhr = typeof XMLHttpRequest != 'undefined' ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
+  // xhr.open('get', 'file.html', true);
+  // xhr.onreadystatechange = function() {
+  //     if (xhr.readyState == 4 && xhr.status == 200) {
+  //         const newDiv = document.createElement("div"); 
+  //         const html = document.getElementsByTagName('html')[0].innerHTML += '<h1>hello</h1>';
+  //     } 
+  // }
+  // xhr.send();
+}
+loadPage()
