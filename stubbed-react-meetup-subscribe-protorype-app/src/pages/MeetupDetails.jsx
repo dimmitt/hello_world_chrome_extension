@@ -1,6 +1,6 @@
 import React from 'react';
 import { meetups } from '../data';
-import '../powderbluelook.css'
+import '../powderbluelook.css';
 
 const MeetupDetails = () => {
   const meetup = meetups[0];
@@ -11,13 +11,14 @@ const MeetupDetails = () => {
     venue, visibility, 
     waitlist_count, yes_rsvp_count 
   } = meetup;
-  // const {id, venue.name, venue.lat, venue.lon, venue.repinned} = venue
-  // const { created, name, id, join_mode, lat } = group
+  // const {id, venue.name, venue.lat, venue.lon, venue.repinned} = venue;
+  // const { created, name, id, join_mode, lat } = group;
   return <div>
-      { created}
+      <br/>{ name}
       <br/>description:
       <br/><div style={{border: 'solid black 1px', display: 'inline-block', whiteSpace: 'pre-line', padding: '.5rem', margin: '.5rem'}}>{ description.replace(/<\/?[^>]+(>|$)/g, "")}</div>
       <br/>{ duration}
+      { created}
       {/* <br/>{ group.created}
       <br/>{ group.name}
       <br/>{ group.id}
@@ -27,7 +28,6 @@ const MeetupDetails = () => {
       <br/>{ link}
       <br/>{ local_date}
       <br/>{ local_time}
-      <br/>{ name}
       <br/>{ status}
       <br/>{ JSON.stringify(time)}
       <br/>{ updated}
@@ -42,5 +42,5 @@ const MeetupDetails = () => {
       <br/>{ yes_rsvp_count} */}
   </div>
 }
-
+export const Component = MeetupDetails
 export default MeetupDetails

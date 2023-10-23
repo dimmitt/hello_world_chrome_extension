@@ -1,6 +1,7 @@
 import './App.css'
 import { lazy } from 'react';
-const MeetupDetails = false ? lazy(() => import('./pages/MeetupDetails')) : () => undefined;
+import Routes from './router/Routes';
+// const MeetupDetails = false ? lazy(() => import('./pages/MeetupDetails')) : () => undefined;
 
 function App() {
   
@@ -9,7 +10,7 @@ function App() {
       minHeight: 'calc(100vh - 40px)',
       width: 'calc(100vw - 40px)'
   }}>
-      <MeetupDetails/>
+      <Routes/>
     </section>
   )
 }
