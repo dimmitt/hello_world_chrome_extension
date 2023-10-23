@@ -1,6 +1,7 @@
 import React from 'react';
 import { meetups } from '../data';
-import '../powderbluelook.css';
+if(true) { import('../powderbluelook.css') }
+
 
 const MeetupDetails = () => {
   const meetup = meetups[0];

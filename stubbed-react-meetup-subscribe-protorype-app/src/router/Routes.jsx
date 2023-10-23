@@ -12,6 +12,7 @@ function Routes() {
     createBrowserRouter(
         createRoutesFromElements(
             <Route path="/" >
+                <Route path="meetups" lazy={() => import('../pages/Meetups.jsx')} />
                 <Route path="meetup-details" lazy={() => import('../pages/MeetupDetails.jsx')} />
             </Route>
     ))
